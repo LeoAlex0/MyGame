@@ -60,10 +60,4 @@ class MainActivity : AppCompatActivity(), GameModule.GameControlListener {
     override fun onGameStartListener() {
         navigation.visibility = View.INVISIBLE
     }
-
-    companion object {
-        init {
-            System.loadLibrary("native-lib")
-        }
-    }
 }
