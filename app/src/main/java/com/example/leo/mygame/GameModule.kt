@@ -47,10 +47,9 @@ class GameModule : Fragment() {
         }
         btn_start.setOnClickListener {
             if (mTimerThread == null) {
-                mTimerThread = PulseMaker.newPulse(1000,plusOne)
+                mTimerThread = PulseMaker.newPulse(1000, plusOne)
                 btn_start.text = "pause"
-            }
-            else {
+            } else {
                 mTimerThread!!.interrupt()
                 mTimerThread = null
                 btn_start.text = "start"
@@ -76,6 +75,7 @@ class GameModule : Fragment() {
     interface GameControlListener {
         /**游戏开始时调用 */
         fun onGameOverListener()
+
         /**游戏结束时调用 */
         fun onGameStartListener()
     }
