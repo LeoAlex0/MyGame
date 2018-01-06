@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">2048</string>
+    <string name="title_again">再试一次</string>
+    <string name="title_share">分享</string>
+    <string name="title_history">历史记录</string>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My 2048</string>
+    <string name="title_share">Share</string>
+    <string name="title_again">Play again</string>
+    <string name="title_history">History</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
