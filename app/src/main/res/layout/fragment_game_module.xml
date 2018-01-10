@@ -1,5 +1,7 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/framentRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.leo.mygame.GameModule">
@@ -7,19 +9,40 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:id="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,RtlHardcoded" />
 
     <Button
+        android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="start"
-        android:id="@+id/btn_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-</FrameLayout>
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:numColumns="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_start" />
+
+</android.support.constraint.ConstraintLayout>

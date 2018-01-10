@@ -41,10 +41,13 @@ class GameModule : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
+        /**这里的[Handler]将[Handler.Callback]直接设置为给[textView]加一
+         * 这样的话[PulseMaker]就只需要调用[Handler.sendEmptyMessage]就能做到加一*/
         val plusOne = Handler {
             textView.text = (textView.text.toString().toLong() + 1).toString()
             true
         }
+        /** 只是简单做个计时器测试一下前面写的[PulseMaker] */
         btn_start.setOnClickListener {
             if (mTimerThread == null) {
                 mTimerThread = PulseMaker.newPulse(1000, plusOne)
@@ -87,7 +90,7 @@ class GameModule : Fragment() {
          * 依次创建新的[Fragment]实例
          *
          * @param gnd 就是场地.
-         * @return A new instance of fragment GameModule.
+         * @return 一个新的[GameModule]实例
          */
         fun newInstance(gnd: ByteArray): GameModule {
             val fragment = GameModule()

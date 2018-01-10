@@ -15,25 +15,19 @@ class MainActivity : AppCompatActivity(), GameModule.GameControlListener {
                 action.show(fragmentShareModule)
                         .hide(fragmentGameModule)
                         .hide(fragmentHistoryModule)
-                        .commit()
-                true
             }
             R.id.navigation_dashboard -> {
                 action.show(fragmentGameModule)
                         .hide(fragmentShareModule)
                         .hide(fragmentHistoryModule)
-                        .commit()
-                true
             }
-            R.id.navigation_notifications -> {
+            else -> {
                 action.show(fragmentHistoryModule)
                         .hide(fragmentGameModule)
                         .hide(fragmentShareModule)
-                        .commit()
-                true
             }
-            else -> false
-        }
+        }.commit()
+        true
     }
 
     private val fragmentGameModule = GameModule.newInstance(ByteArray(16) { 0 })
