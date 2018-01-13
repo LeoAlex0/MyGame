@@ -14,11 +14,24 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:text="0"
+        android:text="Score:0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Time : 0:0:0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btn_start"
@@ -27,22 +40,152 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="start"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-    <GridView
-        android:id="@+id/gridView"
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:numColumns="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_start" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_start">
+
+        <com.example.leo.mygame.CardGroup
+            android:id="@+id/cardGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="4"
+            android:rowCount="4">
+
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+            <com.example.leo.mygame.Card
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_rowWeight="1" />
+
+        </com.example.leo.mygame.CardGroup>
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

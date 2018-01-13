@@ -6,12 +6,14 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
-import android.view.View
+import android.widget.GridView
 
-class Card constructor(mContext: Context, attr: AttributeSet? = null, defStyleAttr: Int = 0) :
-        View(mContext, attr, defStyleAttr) {
+class Card @JvmOverloads constructor(mContext: Context, attr: AttributeSet? = null, defStyleAttr: Int = 0) :
+        GridView(mContext, attr, defStyleAttr) {
+
     private val paint = Paint().apply { textSize = 50f }
     private val textRect = Rect()
+
     /**
      * 数字代表阶数:
      * 0->0,1->2,2->4,3->8,etc.
@@ -52,7 +54,9 @@ class Card constructor(mContext: Context, attr: AttributeSet? = null, defStyleAt
             paint.color = Color.BLACK
             val x = (measuredWidth - textRect.width()) / 2
             val y = (measuredHeight + textRect.height()) / 2
-            canvas.drawText(number.toString(), x.toFloat(), y.toFloat(), paint)
+            canvas.drawText((1 shl number).toString(), x.toFloat(), y.toFloat(), paint)
         }
     }
+
+    override fun toString() = number.toString()
 }

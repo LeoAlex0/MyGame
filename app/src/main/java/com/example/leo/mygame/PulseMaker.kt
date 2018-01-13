@@ -1,6 +1,7 @@
 package com.example.leo.mygame
 
 import android.os.Handler
+import android.os.Message
 import kotlin.concurrent.thread
 
 object PulseMaker {
@@ -12,9 +13,10 @@ object PulseMaker {
      */
     fun newPulse(milliseconds: Long, handler: Handler) = thread {
         try {
+            var times = 1
             while (true) {
                 Thread.sleep(milliseconds)
-                handler.sendEmptyMessage(0)
+                handler.sendMessage(Message().apply { arg1 = times++ })
             }
         } catch (e: InterruptedException) {
             synchronized(threadSet) {

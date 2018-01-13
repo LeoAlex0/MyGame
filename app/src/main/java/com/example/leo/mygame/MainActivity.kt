@@ -3,10 +3,9 @@ package com.example.leo.mygame
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), GameModule.GameControlListener {
+class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val action = fragmentManager.beginTransaction()
@@ -30,10 +29,10 @@ class MainActivity : AppCompatActivity(), GameModule.GameControlListener {
         true
     }
 
-    private val fragmentGameModule = GameModule.newInstance(ByteArray(16) { 0 })
+    private val fragmentGameModule = GameModule.newInstance()
     //TODO: 用其他的模块替代
-    private val fragmentShareModule = GameModule.newInstance(ByteArray(16) { 0 })
-    private val fragmentHistoryModule = GameModule.newInstance(ByteArray(16) { 0 })
+    private val fragmentShareModule = GameModule.newInstance()
+    private val fragmentHistoryModule = GameModule.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +44,5 @@ class MainActivity : AppCompatActivity(), GameModule.GameControlListener {
         fragmentManager.beginTransaction().add(R.id.fragment_container, fragmentShareModule)
                 .add(R.id.fragment_container, fragmentHistoryModule)
                 .add(R.id.fragment_container, fragmentGameModule).commit()
-    }
-
-    override fun onGameOverListener() {
-        navigation.visibility = View.VISIBLE
-    }
-
-    override fun onGameStartListener() {
-        navigation.visibility = View.INVISIBLE
     }
 }
