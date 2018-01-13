@@ -37,7 +37,7 @@ class ItemFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle): View? {
+                              savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
 
         // Set the adapter
@@ -48,6 +48,9 @@ class ItemFragment : Fragment() {
             } else {
                 view.layoutManager = GridLayoutManager(context, mColumnCount)
             }
+            val data = DataSaver.readScore(context)
+            val collection = data.map { DummyItem(it.second,it.first.toString()) }
+            DummyContent.ITEMS.addAll(collection)
             view.adapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener)
         }
         return view
@@ -59,7 +62,7 @@ class ItemFragment : Fragment() {
         if (context is OnListFragmentInteractionListener) {
             mListener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+//            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
         }
     }
 

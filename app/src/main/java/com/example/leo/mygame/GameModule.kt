@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.leo.mygame.dummy.DummyContent
 import kotlinx.android.synthetic.main.fragment_game_module.*
 
 
@@ -70,7 +71,8 @@ class GameModule : Fragment(), GameControlListener {
         textTime.visibility = View.INVISIBLE
         Toast.makeText(context, textTime.text, Toast.LENGTH_LONG).show()
         //TODO ("文件操作")
-        dataSaver.saveScore(context, score, textTime.text.toString())
+        DataSaver.saveScore(context, score, textTime.text.toString())
+        DummyContent.ITEMS.add(DummyContent.DummyItem(textTime.text.toString(),score.toString()))
     }
 
     @SuppressLint("SetTextI18n")

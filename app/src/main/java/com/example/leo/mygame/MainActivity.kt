@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private val fragmentGameModule = GameModule.newInstance()
     //TODO: 用其他的模块替代
     private val fragmentShareModule = GameModule.newInstance()
-    private val fragmentHistoryModule = GameModule.newInstance()
+    private val fragmentHistoryModule = ItemFragment.newInstance(1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
