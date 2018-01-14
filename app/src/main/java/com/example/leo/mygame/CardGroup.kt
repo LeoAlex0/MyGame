@@ -38,7 +38,12 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
     /**手势探测器*/
     private val gesture = GestureDetector(context, myGestureListener)
 
-    lateinit var onGameOverListener: GameControlListener
+    init {
+        /**在此设置其监听对象*/
+        setOnTouchListener{ _,e -> gesture.onTouchEvent(e) }
+    }
+
+    lateinit var gameControlModule: GameControlListener
 
     private var onStart = false
 
@@ -60,12 +65,6 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
                 } as Card
             }
         }
-    }
-
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        gesture.onTouchEvent(event)
-        return true
     }
 
 
@@ -146,7 +145,7 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
             Action.RIGHT -> mergeEachRow(negCol)
         }
         if (!genNext()) {
-            onGameOverListener.onGameOver(score)
+            gameControlModule.onGameOver(score)
             onStart = false
         }
     }
@@ -161,7 +160,15 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
         if (genList.isEmpty()) return false
         val toAdd = 1 randomTo 2
         genList[0 randomUntil genList.size].number = toAdd
-        onGameOverListener.onScoreChangeListener(score)
+        gameControlModule.onScoreChangeListener(score)
         return true
+    }
+
+    interface GameControlListener {
+        /**游戏结束时调用 */
+        fun onGameOver(score: Int)
+
+        /**分数改变时的回调*/
+        fun onScoreChangeListener(score: Int)
     }
 }

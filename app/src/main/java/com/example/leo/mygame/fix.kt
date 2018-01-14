@@ -21,3 +21,7 @@ infix fun Int.randomTo(other: Int) = this randomUntil (other + 1)
  * */
 inline infix operator fun Int.times(blk: () -> Any) = (1..this).forEach { blk() }
 
+/**两种简单的输出格式*/
+fun Int.toScore() = "Score:$this"
+fun Int.toTime() = "Time:${this/3600}:${this/60%60}:${this%60}"
+

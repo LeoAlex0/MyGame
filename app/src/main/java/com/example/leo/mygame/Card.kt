@@ -28,7 +28,7 @@ class Card @JvmOverloads constructor(mContext: Context, attr: AttributeSet? = nu
 
     companion object {
         /**
-         * 每一阶的配色，第0阶背景，懒得扒图先做这么多 TODO:去扒更多的配色
+         * 每一阶的配色，第0阶背景，懒得扒图先做这么多
          */
         private val colors by lazy {
             arrayOf(

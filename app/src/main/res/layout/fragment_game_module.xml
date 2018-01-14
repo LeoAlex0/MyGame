@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.leo.mygame.GameModule">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView"
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Time : 0:0:0"
+        android:text="Time:0:0:0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
