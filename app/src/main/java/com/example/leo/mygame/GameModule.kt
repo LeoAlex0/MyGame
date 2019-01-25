@@ -1,14 +1,12 @@
 package com.example.leo.mygame
 
-import android.annotation.SuppressLint
-import android.app.Fragment
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.leo.mygame.dummy.DataContent
 import kotlinx.android.synthetic.main.fragment_game_module.*
 
 
@@ -27,7 +25,6 @@ class GameModule : Fragment(), CardGroup.GameControlListener {
         return inflater.inflate(R.layout.fragment_game_module, container, false)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onStart() {
         cardGroup.gameControlModule = this
         super.onStart()
@@ -55,12 +52,11 @@ class GameModule : Fragment(), CardGroup.GameControlListener {
         textTime.visibility = View.INVISIBLE
         Toast.makeText(context, textTime.text, Toast.LENGTH_LONG).show()
         /**文件操作 && 更新列表*/
-        DataSaver.saveScore(context, score, time)
+        DataSaver.saveScore(context!!, score, time)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onScoreChangeListener(score: Int) {
-        textView.text = "Score:$score"
+        textView.text = score.toScore()
     }
 
     companion object {

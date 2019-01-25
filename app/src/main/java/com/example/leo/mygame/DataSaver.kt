@@ -12,7 +12,7 @@ import java.util.*
  * 用于保存和读取数据
  */
 object DataSaver {
-    private val filename = "scoreHistory"
+    private const val filename = "scoreHistory"
 
     fun saveScore(context: Context, score: Int, time: Int) {
         val outStream = PrintStream(context.openFileOutput(filename, MODE_APPEND))
@@ -21,14 +21,10 @@ object DataSaver {
         DataContent.items.add(DataContent.DummyItem(time.toTime(),score.toScore()))
     }
 
-    fun readScore(context: Context): ArrayList<Pair<Int, Int>> {
-        val ret = arrayListOf<Pair<Int, Int>>()
-        try {
-            val scanner = Scanner(context.openFileInput(filename))
-            while (scanner.hasNext()) {
-                ret.add(Pair(scanner.nextInt(), scanner.nextInt()))
-            }
-        } catch (e: IOException) { }
-        return ret
+    fun readScore(context: Context): List<Pair<Int, Int>> = try {
+        val scanner = Scanner(context.openFileInput(filename))
+        scanner.asSequence().map(String::toInt).chunked(2).map { (s, t) -> Pair(s, t) }.toList()
+    } catch (e: IOException) {
+        emptyList()
     }
 }

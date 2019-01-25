@@ -4,7 +4,12 @@
     <string name="title_again">Main Tab</string>
     <string name="title_history">History</string>
 
-    <string name="hello_blank_fragment">This is a simple 2048 project.You can access the home page of this project,fork or clone the source code.If you\'re unsatisfied with this,you can also make a \'Pull request\'.</string>
+    <string name="hello_blank_fragment">This is a simple 2048 project.
+        You can access the home page of this project,fork or clone the source code.
+        If you\'re unsatisfied with this,you can also make a \'Pull request\'.</string>
     <string name="btn_homepage">Project\'s HomePage</string>
+    <string name="start_hint">Start</string>
+    <string name="score_hint">Score:</string>
+    <string name="time_hint">Time:</string>
 
 </resources>

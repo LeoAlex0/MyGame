@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$USER_HOME$/extra/leo/workspace/Android/MyGame" />
+            <option value="$USER_HOME$/extra/leo/workspace/Android/MyGame/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

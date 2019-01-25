@@ -18,7 +18,7 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
     private val myGestureListener = object : GestureDetector.SimpleOnGestureListener() {
 
         /**最小移动阈值*/
-        private val minDistance = 50
+        private val minDistance = 15
 
         override fun onFling(p0: MotionEvent, p1: MotionEvent, p2: Float, p3: Float): Boolean {
             if (!onStart) return true
@@ -39,8 +39,8 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
     private val gesture = GestureDetector(context, myGestureListener)
 
     init {
-        /**在此设置其监听对象*/
-        setOnTouchListener{ _,e -> gesture.onTouchEvent(e) }
+        isClickable = true
+        setOnTouchListener { _, e -> gesture.onTouchEvent(e) }
     }
 
     lateinit var gameControlModule: GameControlListener
@@ -69,7 +69,7 @@ class CardGroup @JvmOverloads constructor(mContext: Context, attr: AttributeSet?
 
 
     fun startGame() {
-        cardItems.forEach { it.forEach { it.number = 0 } }
+        cardItems.forEach { r -> r.forEach { it.number = 0 } }
         score = 0
         4 * { genNext() }
         onStart = true

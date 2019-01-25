@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        val action = fragmentManager.beginTransaction()
+        val action = supportFragmentManager.beginTransaction()
         when (item.itemId) {
             R.id.navigation_home -> {
                 action.show(fragmentShareModule)
@@ -40,7 +40,11 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_dashboard
 
-        fragmentManager.beginTransaction().add(R.id.fragment_container, fragmentShareModule)
+        time_hint = getString(R.string.time_hint)
+        score_hint = getString(R.string.score_hint)
+
+        supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, fragmentShareModule)
                 .add(R.id.fragment_container, fragmentHistoryModule)
                 .add(R.id.fragment_container, fragmentGameModule).commit()
     }

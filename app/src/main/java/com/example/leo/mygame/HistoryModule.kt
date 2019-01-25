@@ -1,7 +1,7 @@
 package com.example.leo.mygame
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -16,14 +16,12 @@ import com.example.leo.mygame.dummy.DataContent.DummyItem
  * fragment (e.g. upon screen orientation changes).
  */
 class HistoryModule : Fragment() {
-    private var mColumnCount = 1
+    private var mColumnCount: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (arguments != null) {
-            mColumnCount = arguments.getInt(ARG_COLUMN_COUNT)
-        }
+        mColumnCount = arguments?.getInt(ARG_COLUMN_COUNT) ?: mColumnCount
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +46,7 @@ class HistoryModule : Fragment() {
 
     companion object {
 
-        private val ARG_COLUMN_COUNT = "column-count"
+        private const val ARG_COLUMN_COUNT = "column-count"
 
         fun newInstance(columnCount: Int): HistoryModule {
             val fragment = HistoryModule()
